@@ -1,0 +1,41 @@
+    @Test
+    public void testOnlyZeros() {
+        int result = CodeWars.material(new int [] {0,0,0,0,0});
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testOnlyGlobalMax() {
+        int result = CodeWars.material(new int [] {5,5,5,5,5});
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testGlobalMaxesOnEdges() {
+        int result = CodeWars.material(new int [] {7,3,4,3,7});
+        assertEquals(11, result);
+    }
+
+    @Test
+    public void testNoElements() {
+        int result = CodeWars.material(new int [] {});
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testOneElement() {
+        int result = CodeWars.material(new int [] {3});
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testTwoElements() {
+        int result = CodeWars.material(new int [] {1,2});
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testTwoMaxesDifferentLocs() {
+        int result = CodeWars.material(new int [] {1,3,1,7,2,4,3,7,1});
+        assertEquals(14, result);
+    }
