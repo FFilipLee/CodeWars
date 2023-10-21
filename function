@@ -1,0 +1,51 @@
+    public static int material(int[] spaceShip)
+    {
+        if (spaceShip.length < 3)
+        {
+            return 0;
+        }
+
+        int result = 0;
+
+        int globalMaxValue = spaceShip[0];
+        int globalMaxLoc = 0;
+
+        for (int i = 1; i < spaceShip.length; i++)
+        {
+            if (spaceShip[i] > globalMaxValue)
+            {
+                globalMaxValue = spaceShip[i];
+                globalMaxLoc = i;
+            }
+        }
+
+        int localMaxValue = spaceShip[0];
+
+        for (int i = 1; i < globalMaxLoc; i++)
+        {
+            if (spaceShip[i] < localMaxValue)
+            {
+                result += localMaxValue - spaceShip[i];
+            }
+            else
+            {
+                localMaxValue = spaceShip[i];
+            }
+        }
+
+        localMaxValue = spaceShip[spaceShip.length - 1];
+
+        for (int i = spaceShip.length - 2; i > globalMaxLoc; i--)
+        {
+            if (spaceShip[i] < localMaxValue)
+            {
+                result += localMaxValue - spaceShip[i];
+            }
+            else
+            {
+                localMaxValue = spaceShip[i];
+            }
+        }
+
+        return result;
+    }
